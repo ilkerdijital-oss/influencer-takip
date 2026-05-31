@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Influencer Takip Paneli</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Panel menusu">
+        <div class="brand-block">
+          <img class="brand-logo" src="assets/rmedia-logo.png" alt="R Media" />
+          <div>
+            <p class="eyebrow">E-ticaret</p>
+            <h1>Influencer Paneli</h1>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="Bolumler">
+          <a class="nav-item active" href="#overview">
+            <span aria-hidden="true">I</span>
+            Influencer Paneli
+          </a>
+        </nav>
+
+        <div class="side-summary">
+          <p>Bu ay odak</p>
+          <strong id="sideFocus">Performans kodlari</strong>
+          <span id="sidePipeline">0 aktif is birligi</span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <section class="topbar" id="overview">
+          <div>
+            <p class="eyebrow">Bugunku takip</p>
+            <h2>Marka is birliklerini tek ekranda yonet</h2>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" id="resetData" title="Ornek veriyi geri yukle" aria-label="Ornek veriyi geri yukle">R</button>
+            <button class="secondary-button" id="exportCsv">CSV indir</button>
+            <button class="primary-button" id="openModal">Yeni influencer</button>
+          </div>
+        </section>
+
+        <section class="status-grid" aria-label="Durum baremleri">
+          <article class="status-card" data-status-card="teklif iletildi">
+            <div>
+              <span>teklif iletildi</span>
+              <strong data-status-count="teklif iletildi">0</strong>
+            </div>
+            <div class="status-bar"><span data-status-bar="teklif iletildi"></span></div>
+          </article>
+          <article class="status-card" data-status-card="anlaşma sağlandı">
+            <div>
+              <span>anlaşma sağlandı</span>
+              <strong data-status-count="anlaşma sağlandı">0</strong>
+            </div>
+            <div class="status-bar"><span data-status-bar="anlaşma sağlandı"></span></div>
+          </article>
+          <article class="status-card" data-status-card="çekim talebi iletildi.">
+            <div>
+              <span>çekim talebi iletildi.</span>
+              <strong data-status-count="çekim talebi iletildi.">0</strong>
+            </div>
+            <div class="status-bar"><span data-status-bar="çekim talebi iletildi."></span></div>
+          </article>
+          <article class="status-card" data-status-card="affilate kaydı yapıldı.">
+            <div>
+              <span>affilate kaydı yapıldı.</span>
+              <strong data-status-count="affilate kaydı yapıldı.">0</strong>
+            </div>
+            <div class="status-bar"><span data-status-bar="affilate kaydı yapıldı."></span></div>
+          </article>
+          <article class="status-card" data-status-card="ürünler kargoya verildi.">
+            <div>
+              <span>ürünler kargoya verildi.</span>
+              <strong data-status-count="ürünler kargoya verildi.">0</strong>
+            </div>
+            <div class="status-bar"><span data-status-bar="ürünler kargoya verildi."></span></div>
+          </article>
+          <article class="status-card" data-status-card="ürün ulaştı, çekim bekleniyor.">
+            <div>
+              <span>ürün ulaştı, çekim bekleniyor.</span>
+              <strong data-status-count="ürün ulaştı, çekim bekleniyor.">0</strong>
+            </div>
+            <div class="status-bar"><span data-status-bar="ürün ulaştı, çekim bekleniyor."></span></div>
+          </article>
+          <article class="status-card" data-status-card="çekimler teslim alındı.">
+            <div>
+              <span>çekimler teslim alındı.</span>
+              <strong data-status-count="çekimler teslim alındı.">0</strong>
+            </div>
+            <div class="status-bar"><span data-status-bar="çekimler teslim alındı."></span></div>
+          </article>
+        </section>
+
+        <section class="toolbar" aria-label="Filtreler">
+          <label class="search-field">
+            <span>Arama</span>
+            <input id="searchInput" type="search" placeholder="Isim, tel no, urun..." />
+          </label>
+
+          <div class="segmented" role="group" aria-label="Durum filtresi">
+            <button class="segment active" data-filter="all">Tumu</button>
+            <button class="segment" data-filter="teklif iletildi">Teklif iletildi</button>
+            <button class="segment" data-filter="anlaşma sağlandı">Anlaşma sağlandı</button>
+            <button class="segment" data-filter="çekim talebi iletildi.">Çekim talebi iletildi</button>
+            <button class="segment" data-filter="affilate kaydı yapıldı.">Affilate kaydı</button>
+            <button class="segment" data-filter="ürünler kargoya verildi.">Ürünler kargoda</button>
+            <button class="segment" data-filter="ürün ulaştı, çekim bekleniyor.">Ürün ulaştı</button>
+            <button class="segment" data-filter="çekimler teslim alındı.">Çekimler teslim</button>
+          </div>
+        </section>
+
+        <section class="workspace-grid">
+          <div class="table-panel" id="influencers">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Liste</p>
+                <h3>Influencer takip listesi</h3>
+              </div>
+              <div class="panel-actions">
+                <span id="resultCount">0 kayit</span>
+                <button class="primary-button" id="openListModal">Yeni influencer ekle</button>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ad</th>
+                    <th>Tel no</th>
+                    <th>Urun</th>
+                    <th>Kanal</th>
+                    <th>Durum</th>
+                    <th>Tarih</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="influencerRows"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <aside class="right-rail">
+            <section class="panel" id="tasks">
+              <div class="panel-heading compact">
+                <div>
+                  <p class="eyebrow">Siradaki</p>
+                  <h3>Is akisi</h3>
+                </div>
+              </div>
+              <div id="taskList" class="task-list"></div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="influencerModal" class="modal">
+      <form id="influencerForm" method="dialog">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">Kayit</p>
+            <h3 id="modalTitle">Yeni influencer</h3>
+          </div>
+          <button type="button" class="icon-button" id="closeModal" aria-label="Kapat">x</button>
+        </div>
+
+        <input type="hidden" id="recordId" />
+
+        <div class="form-grid">
+          <label>
+            Isim
+            <input id="name" required placeholder="Ayse Demir" />
+          </label>
+          <label>
+            Tel no
+            <input id="phone" required placeholder="05xx xxx xx xx" />
+          </label>
+          <label>
+            Urun
+            <input id="product" required placeholder="Serum seti, elbise, oyuncak..." />
+          </label>
+          <label>
+            Kanal
+            <select id="channel">
+              <option>Instagram</option>
+              <option>TikTok</option>
+              <option>YouTube</option>
+              <option>Blog</option>
+            </select>
+          </label>
+          <label>
+            Instagram adresi
+            <input id="instagram" placeholder="@markahesabi veya profil linki" />
+          </label>
+          <label>
+            Komisyon orani %
+            <input id="commission" type="number" min="0" max="100" step="0.1" placeholder="15" />
+          </label>
+          <label>
+            Durum
+            <select id="status">
+              <option>teklif iletildi</option>
+              <option>anlaşma sağlandı</option>
+              <option>çekim talebi iletildi.</option>
+              <option>affilate kaydı yapıldı.</option>
+              <option>ürünler kargoya verildi.</option>
+              <option>ürün ulaştı, çekim bekleniyor.</option>
+              <option>çekimler teslim alındı.</option>
+            </select>
+          </label>
+          <label>
+            Tarih
+            <input id="date" type="date" required />
+          </label>
+          <label>
+            Saat
+            <input id="time" type="time" required />
+          </label>
+          <label class="wide">
+            Not
+            <textarea id="notesField" rows="3" placeholder="Brief, teslim, revizyon..."></textarea>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="danger-button" id="deleteRecord">Sil</button>
+          <div>
+            <button type="button" class="secondary-button" id="cancelModal">Vazgec</button>
+            <button class="primary-button" id="saveRecord">Kaydet</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
